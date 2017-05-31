@@ -1,0 +1,59 @@
+select-materiel{
+
+    .select-body{
+        height: 52.8px;
+        background-color: #fff;
+        margin-bottom: 3px;
+    }
+
+    .select-label{
+        float: left;
+        font-size: 1.7rem;
+        margin-left: 14px;
+        margin-top: 14px;
+        margin-right: 18px;
+    }
+
+    .select-input{
+        
+    }
+
+    .select-input .input{
+        float: left;
+        border: none;
+        background: #fff;
+        height: 52.8px;
+        width: calc(100% - 78px);
+        font-size: 1.7rem;
+        line-height: 52.8px;
+        text-align: right;
+        padding-right: 12px;
+    }
+
+    .select-body .icon{
+        float: left;
+        height: 52.8px;
+        line-height: 52.8px;
+    }
+
+    .select-opt{
+        float: left;
+    }
+
+    .select-item-body{
+        padding-bottom: 6px;
+    }
+
+    .select-item-body .item{
+        background-color: white;
+        margin-top: 1px;
+        height: 30px;
+        line-height: 30px;
+        padding-left: 9px;
+    }
+    .select-item-body .item-text{
+        color: rgba(0, 0, 0, 0.51);
+        padding-left: 5px;
+        
+    }
+}

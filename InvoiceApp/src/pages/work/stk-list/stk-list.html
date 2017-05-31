@@ -1,0 +1,29 @@
+<!--
+  Generated template for the StkList page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>库存管理</ion-title>   
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar  placeholder="输入仓库、商品编号、名称进行查询" [(ngModel)]="searchKey" (keyup)="onSearch($event)"(ionClear)="getData()"></ion-searchbar>
+  <table class="table">
+    <tr>
+      <th>商品编码</th>
+      <th>商品名称</th>
+      <th>仓库</th>
+      <th>数量</th>
+    </tr>
+    <tr *ngFor="let stk of stkList">
+      <td>{{stk.good_no}}</td>
+      <td>{{stk.good_name}}</td>
+      <td>{{stk.store_name}}</td>
+      <td>{{stk.qty}}</td>
+    </tr>
+  </table>
+</ion-content>

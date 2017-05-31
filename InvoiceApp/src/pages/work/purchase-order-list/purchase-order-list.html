@@ -1,0 +1,55 @@
+<!--
+  Generated template for the PurchaseOrderList page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>采购订单</ion-title>
+    <ion-buttons end>
+      <button tappable ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+      <button tappable ion-button icon-only (click)="deleteAllItem()">
+        <ion-icon name="remove"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-searchbar
+    [(ngModel)]="myInput"
+    (ionInput)="onInput()"
+    [placeholder]="placeholder"
+    (ionClear)="onClear()"
+  >
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items" >
+      <ion-item tappable  >
+        <ion-checkbox color="dark" value="item.supplier_no" (ionChange)="insertUserToArray(item,$event)"></ion-checkbox>
+
+        <ion-card item-left >
+          <ion-card-content>
+            <div (click)="editItem(item)" item-left style="float:left">
+              <div>{{item.supplier_no}}</div>
+              <div> {{item.bill_no}}</div>
+            </div>
+            <button ion-button (click)="editItem(item)" small item-right style="float:right">
+              <ion-icon name="edit"></ion-icon>
+              明细
+            </button>
+          </ion-card-content>
+        </ion-card>
+
+
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

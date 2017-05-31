@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      商品管理
+    </ion-title>
+    <ion-buttons end>
+      <button tappable ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    [(ngModel)]="myInput"
+    (ionInput)="onInput()"
+    [placeholder]="placeholder"
+    (ionClear)="onClear()"
+  >
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items" (press)="deleteItem(item)">
+      <ion-item tappable (click)="editItem(item)" >
+        <ion-thumbnail  item-left>
+          <img src="{{item.img}}">
+        </ion-thumbnail>
+
+        <div item-left>
+          <div>商品编号：{{item.good_no}}</div>
+          <div> 商品名称：{{item.good_name}}</div>
+        </div>
+
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button (click)="deleteItem(item)">
+          <ion-icon name="trash"></ion-icon>
+          删除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

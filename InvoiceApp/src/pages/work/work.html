@@ -1,0 +1,30 @@
+<ion-header  >
+  <ion-navbar>
+    <ion-title>
+      业务工作台
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content>
+
+  <ion-slides class="slide-title" [slidesPerView]="pageNumber" [pager]="false">
+    <ion-slide *ngFor="let slide of slides; let i = index;">
+      <div (click)="onClick(i,slide)">
+        <span class="slide-title-unit" [ngClass]="{'slide-title-active': selectedIndex == i}">{{slide}}</span>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-grid>
+    <ion-row *ngFor="let cell of cells;">
+      <ion-col col-4 *ngFor="let item of cell;" (click)="openPages(item)">
+        <img src="assets/img/90110660.png">
+        <p>{{item}}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

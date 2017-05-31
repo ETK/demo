@@ -1,0 +1,51 @@
+<!--
+  Generated template for the SupplierAdd page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-title *ngIf="operation == 'add'">新增供应商</ion-title>
+    <ion-title *ngIf="operation == 'edit'">编辑供应商信息</ion-title>
+    <ion-title *ngIf="operation == 'detail'">供应商信息</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>编号</ion-label>
+      <ion-input type="text" [(ngModel)]="supplier.supplier_no" readonly="true" placeholder="供应商编号"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>名称</ion-label>
+      <ion-input type="text" [(ngModel)]="supplier.supplier_name" placeholder="供应商名称"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>地址</ion-label>
+      <ion-input type="text" [(ngModel)]="supplier.supplier_addr" placeholder="供应商地址"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>联系人</ion-label>
+      <ion-input type="text" [(ngModel)]="supplier.contact" placeholder="供应商联系人"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>电话</ion-label>
+      <ion-input type="text" [(ngModel)]="supplier.phone" placeholder="供应商电话"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>邮箱</ion-label>
+      <ion-input type="text" [(ngModel)]="supplier.email" placeholder="邮箱"></ion-input>
+    </ion-item>
+
+  </ion-list>
+  <button ion-button block (click)="save()" *ngIf="operation == 'add' || operation == 'edit'">Save</button>
+</ion-content>

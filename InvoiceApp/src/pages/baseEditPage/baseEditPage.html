@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>
+      {{pageName}}
+    </ion-title>
+    <ion-buttons end>
+      <button  ion-button icon-only (click)="addDetail()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+<!-- <div style="overflow:auto;width: 100%;">
+    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    &lt;!&ndash;<ion-list>
+      <ion-item *ngFor="let item of pageData.gridRows">
+          {{item["billNo"]}}
+      </ion-item>
+    </ion-list>&ndash;&gt;
+    <div class="list-body">
+        <div class="list-body-item" *ngFor="let row of pageData.gridRows">
+            <div class="title">
+                 <ion-icon name="md-alarm" class="time"></ion-icon>
+                <span class="text">{{row["deliveryTime"]}}</span>
+            </div>
+            <div class="detail-body">
+                <div class="detail float-left">
+                    <div class="d1">
+                        <div class="name float-left">{{row["customerName"]}}</div>
+                        <div class="status float-left">{{row["status"]}}</div>
+                    </div>
+                    <div class="d2">
+                        <div class="bill float-left">{{row["billNo"]"}}}</div>
+                        <div class="pic float-right">{{row["amount"]}}</div>
+                    </div>
+                </div>
+                <div class="icon float-left">
+                    <ion-icon name="ios-arrow-forward"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>-->
+</ion-content>

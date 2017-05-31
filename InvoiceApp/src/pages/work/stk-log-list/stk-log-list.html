@@ -1,0 +1,48 @@
+<!--
+  进出仓明细表
+  wudefeng
+  2017-05-19
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>进出仓明细表</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content scrollbar-x="true">
+
+<ion-searchbar placeholder="输入仓库、商品编号、名称进行查询" [(ngModel)]="searchKey" (keyup)="onSearch($event)" (ionClear)="getData()">
+ 
+</ion-searchbar>
+
+<div style="overflow:scroll;width: 100%">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>商品编码</th>
+      <th>商品名称</th>
+      <th>仓库</th>
+      <th>数量</th>
+      <th>业务单据号</th>
+      <th>进/出仓</th>
+      <th>操作人</th>
+      <th>操作时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let obj of items">
+      <td>{{obj.good_no}}</td>
+      <td>{{obj.good_name}}</td>
+      <td>{{obj.store_name}}</td>
+      <td>{{obj.qty}}</td>
+      <td>{{obj.bill_no}}</td>
+      <td>{{obj.in_out_flag=="I"?"进仓":"出仓"}}</td>
+      <td>{{obj.creator}}</td>
+      <td>{{obj.create_time}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</ion-content>

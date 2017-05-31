@@ -1,0 +1,90 @@
+<!--
+  调拨明细页.
+  wudefeng
+  2017-05-11
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{title}}</ion-title>
+    <ion-buttons end  *ngIf="billStatus=='10' && !isAdd">
+      <button ion-button (click)="showMore($event)" icon-only>
+        <ion-icon name="more"></ion-icon>
+       </button>      
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>单据编号</ion-label>
+      <ion-input type="text" [(ngModel)]="item.bill_no" disabled=true text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>调出仓</ion-label>
+      <ion-input [(ngModel)]="item.out_store_name" tappable placeholder="请选择仓库" readonly (click)="chooseStore('O')" [disabled]="billStatus!='10'"
+        text-right>
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>调入仓</ion-label>
+      <ion-input [(ngModel)]="item.in_store_name" tappable placeholder="请选择仓库" readonly (click)="chooseStore('I')" [disabled]="billStatus!='10'"
+        text-right>
+      </ion-input>
+    </ion-item>
+    <ion-item-divider color="light">
+    </ion-item-divider>
+    <button ion-item tappable (click)="chooseGoods()" [disabled]="billStatus!='10'">
+       <div>调拨商品</div>
+       <div item-right>共:{{getTotalCount()}}项</div>      
+     </button>
+
+    <ion-card>
+      <ion-list>
+        <ion-item-sliding *ngFor="let obj of goodsList">
+          <ion-item>
+            <ion-icon name='cart' item-left color="primary"></ion-icon>
+            {{obj.good_no}}
+            <div item-right style="margin-right: -6px">
+              <button ion-button (click)="changeQty(obj,-1)" style="margin-right:-6px" clear icon-only *ngIf="billStatus=='10'">
+               <ion-icon name="remove"></ion-icon>
+           </button>
+              <button ion-button (click)="inputQty(obj)" outline style="min-width:35px">
+              {{obj.qty}}
+            </button>           
+              <button ion-button (click)="changeQty(obj,1)" style="margin-left:-6px" clear icon-only *ngIf="billStatus=='10'">
+               <ion-icon name="add"></ion-icon>
+            </button>
+            </div>
+          </ion-item>
+          <ion-item-options *ngIf="billStatus=='10'">
+            <button ion-button color="danger" (click)="deleteItem(obj)">
+               删除
+          </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-list>
+    </ion-card>
+    <ion-item-divider color="light"></ion-item-divider>
+    <ion-item>
+      <ion-label>制单人</ion-label>
+      <ion-input type="text" [(ngModel)]="item.creator" disabled=true text-right></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>制单日期</ion-label>
+      <ion-input type="text" [(ngModel)]="item.create_time" disabled=true text-right></ion-input>
+    </ion-item>
+  </ion-list> 
+</ion-content>
+
+<ion-footer>
+  <ion-item color="light">
+    ￥{{getTotalCost()}}
+
+    <button ion-button item-right (click)="save()" *ngIf="billStatus=='10'" medium>保存</button>
+    <button ion-button item-right outline color="primary" *ngIf="billStatus=='20'">已审核</button>
+  </ion-item>
+</ion-footer>

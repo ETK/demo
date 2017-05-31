@@ -1,0 +1,54 @@
+<!--
+  盘点录入单
+  wudefeng
+  2017-05-12
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>盘点录入单</ion-title>   
+  </ion-navbar>
+
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>单据编号</ion-label>
+      <ion-input [(ngModel)]="item.bill_no" disabled=true text-right></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>仓库</ion-label>
+      <ion-input [(ngModel)]="item.store_name"  placeholder="请选择仓库" readonly (click)="chooseStore()"  text-right>
+      </ion-input>     
+    </ion-item>
+
+    <ion-item-divider color="light">
+    </ion-item-divider>
+
+    <ion-item *ngFor="let obj of checkList" (click)="inputQty(obj)">
+      <ion-avatar item-left>
+        <img [src]="obj.img">
+      </ion-avatar>
+      <h3><span class="checklabel">品号：</span>{{obj.good_no}}</h3>
+      <h3><span class="checklabel">品称：</span>{{obj.good_name}}</h3>
+
+      <div item-right>
+        <p> <span class="checklabel">系统数量:</span>{{obj.stk_qty}}</p>
+        <p> <span class="checklabel">盘点数量:</span>{{obj.input_qty}}</p>
+      </div>
+
+    </ion-item>
+  </ion-list> 
+  
+</ion-content>
+
+<ion-footer>
+
+  <ion-item color="light">
+    共盘点{{getInputCount()}}项,库存金额{{getTotalCost()}}
+    <button ion-button small item-right (click)="saveCheck()" *ngIf="isAdd">确认</button>
+    <button ion-button item-right outline color="primary" *ngIf="!isAdd">已审核</button>
+  </ion-item>
+
+</ion-footer>

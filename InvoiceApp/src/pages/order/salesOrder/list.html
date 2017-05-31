@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>
+      {{pageName}}
+    </ion-title>
+    <ion-buttons end>
+      <button  ion-button icon-only (click)="addDetail()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div style="overflow:auto;width: 100%;">
+  <!-- <ion-searchbar (ionInput)="search($event)" [(ngModel)]="pageData.searchValue" [value]="pageData.searchValue"></ion-searchbar>-->
+    <div class="list-body" >
+        <div class="list-body-item" *ngFor="let row of pageData.gridRows" (click)="onClickRow($event,row,index)">
+            <div class="title">
+                 <ion-icon name="md-alarm" class="time"></ion-icon>
+                <span class="text">{{row["deliveryTime"]}}</span>
+            </div>
+            <div class="detail-body" (pan)="_onDrag($event,row,index)"  darg="true" >
+                <div class="detail float-left">
+                    <div class="d1">
+                        <div class="name float-left">{{row["customerName"]}}</div>
+                        <div class="status float-left">{{row["billStatus"]}}</div>
+                    </div>
+                    <div class="d2">
+                        <div class="bill float-left">{{row["billNo"]}}</div>
+                        <div class="pic float-right">{{row["remarks"]}}</div>
+                    </div>
+                </div>
+                <div class="icon float-left">
+                    <ion-icon name="ios-arrow-forward"></ion-icon>
+                </div>
+            </div>
+            <div class="list-btn-del" (click)="_onDelItem($event,row,index)">删除</div>
+        </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,23 @@
+
+<div class="select-body">
+    <label class="select-label">{{title}}</label>
+    <div class="select-input">
+        <div [hidden]="multiSelect" class="input" (click)="_onClick()">
+                {{value}}
+        </div>
+        <div [hidden]="!multiSelect" class="input" (click)="_onClick()">
+                已选择({{selectItems.length}})项
+        </div>
+    </div>
+    <div class="icon">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+    </div>
+</div>
+<div [hidden]="!multiSelect" class="select-item-body">
+    <div class="item" *ngFor="let item of selectItems">
+        {{item[valueField]}}<span class="item-text">{{item[textField]}}</span>
+    </div>
+</div>
+
+
+

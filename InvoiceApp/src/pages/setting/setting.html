@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      设置
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item style="height: 120px;" tappable (click)="modifyAvatar()">
+      <ion-thumbnail item-left>
+        <img src="{{user.avatarUrl}}">
+      </ion-thumbnail>
+      <h2>{{user.username}}</h2>
+      <p>{{user.loginTime}}</p>
+    </ion-item>
+
+    <button ion-item  tappable (click)="modifyPassword()">
+      <ion-icon name="ios-create-outline" item-left></ion-icon>
+      修改密码
+    </button>
+    <button ion-item tappable (click)="clearCache()">
+      <ion-icon name="ios-trash-outline" item-left></ion-icon>
+      清除缓存
+    </button>
+   <!-- <button ion-item tappable (click)="messageSet()">
+      <ion-icon name="ios-volume-up-outline" item-left></ion-icon>
+      消息推送
+    </button>-->
+
+    <ion-item>
+      <ion-icon name="ios-volume-up-outline" item-left></ion-icon>
+      <ion-label>消息推送</ion-label>
+      <ion-toggle [checked]="isMesChecked"  (ionChange) ="changeToggle($event)"></ion-toggle>
+    </ion-item>
+
+    <button ion-item tappable (click)="updateApp()">
+      <ion-icon name="ios-sync-outline" item-left></ion-icon>
+      检查更新
+    </button>
+    <button ion-item  tappable (click)="aboutAs()">
+      <ion-icon name="ios-at-outline" item-left></ion-icon>
+      关于我们
+    </button>
+    <button ion-item tappable (click)="logOut()">
+      <ion-icon name="ios-log-out-outline" item-left></ion-icon>
+      退出登录
+    </button>
+  </ion-list>
+</ion-content>

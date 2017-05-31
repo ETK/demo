@@ -1,0 +1,91 @@
+.float-left{
+    float:left;
+}
+.float-right{
+    float: right
+}
+
+.list-body{
+
+}
+
+.list-body-item{
+    height: 108px;
+}
+
+.list-body-item .title{
+    font-weight: bold;
+    background-color:rgb(247,247,246);
+    font-size: 15px;
+    color:#59BCEA;
+    height: 39px;
+    line-height: 41px;
+}
+
+.list-body-item .title .time{
+    margin-left:10px;
+}
+
+.list-body-item .title .text{
+    margin-left: 10px;
+    margin-top: -1px;
+    position: absolute;
+}
+.list-body-item .detail-body{
+
+}
+
+.list-body-item .detail-body  .icon{
+        font-size: 20px;
+    padding-top: 11px;
+    padding-left: 5px;
+    color: #ccc;
+}
+
+.list-body-item .detail-body .detail {
+    width:calc(100% - 20px);
+}
+
+.list-body-item .detail-body .detail .name{
+    width: calc(100% - 55px);
+    float: left;
+    padding-left: 15px;
+    font-size: 20px;
+    color: #6F7C71;
+    font-family: "黑体";
+    padding-top: 3px;
+}
+
+.list-body-item .detail-body .detail .bill{
+    color: #CED0CE;
+    padding-left: 15px;
+    font-family: "黑体";
+}
+
+.list-body-item .detail-body .detail .pic{
+    color: #54C0F0;
+}
+
+.list-body-item .detail-body .detail .status{
+    
+    border: 1px solid #C1C6C3;
+    border-radius: 5px;
+    color: #C1C6C3;
+    float: left;
+    text-align: center;
+    height: 27px;
+    line-height: 27px;
+    padding: 0px 3px 0px 3px;
+    margin-top: 7px;
+}
+
+.list-body-item .detail-body .detail .d1{
+    height: 33px;
+    line-height: 33px;
+}
+
+.list-body-item .detail-body .detail .d2{
+    padding-top: 13px;
+    font-size: 16px;
+
+}

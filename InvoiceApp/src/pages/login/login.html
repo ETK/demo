@@ -1,0 +1,21 @@
+
+<ion-header>
+</ion-header>
+
+
+<ion-content padding style="background: url(assets/img/login_bg.png) center; background-size: cover;">
+  <div style="margin-top: 150px;">
+    <ion-item >
+      <ion-label floating >用户名</ion-label>
+      <ion-input type="text" [(ngModel)]="user.userName" clearInput ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating >密码</ion-label>
+      <ion-input type="password" [(ngModel)]="user.passWord" clearInput></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="padding" style="margin-top: 50px;text-align: center">
+    <button tappable ion-button block round color="secondary" (click)="loginClick()">{{loginText}}</button>
+  </div>
+</ion-content>

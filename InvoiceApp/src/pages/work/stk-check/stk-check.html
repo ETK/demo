@@ -1,0 +1,36 @@
+<!--
+  盘点录入单清单.
+  wudefeng
+  2017-05-12
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>盘点单</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onSearch($event)" placeholder="输入仓库、商品等关键字进行查询" (ionClear)="getData()">
+  </ion-searchbar>
+   <ion-list>
+    <button ion-item tappable *ngFor="let item of items" (click)="addItem(item)">    
+      <div>{{item.store_name}}</div>
+      <div>{{item.bill_no}} </div>    
+      
+      <div item-right text-right>
+        <button ion-button color="secondary" *ngIf="item.bill_status=='10'" outline>制单</button>
+        <button ion-button color="energized" *ngIf="item.bill_status=='20'" outline>审核</button>
+        <p>￥ {{item.totalCost}}</p>
+      </div>    
+       
+    </button>
+  </ion-list>
+
+</ion-content>

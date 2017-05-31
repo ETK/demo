@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>
+      {{pageName}}
+    </ion-title>
+    <ion-buttons end>
+      <button  ion-button icon-only (click)="_onOpenFilter()">
+        <ion-icon name="ios-funnel-outline" style="font-size: 16px;"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <div style="width: 100%;">
+    <ion-searchbar (ionInput)="_search($event)"></ion-searchbar>
+    <div class="list-body list-body-select" >
+        <div class="list-body-item" *ngFor="let row of data" (click)="_onClickRow($event,row,index)">
+            <div class="title">
+                 <!--<ion-icon name="md-alarm" class="time"></ion-icon>-->
+                <span class="text">{{row["materielCode"]}}</span>
+            </div>
+            <div class="detail-body">
+                <div class="detail float-left">
+                    <div class="d1">
+                        <div [hidden]="multiSelect" style="float: left;">
+                            <ion-icon [hidden]="row['_select']" name="ios-radio-button-off"></ion-icon>
+                            <ion-icon style="color:#387ef5;" [hidden]="!row['_select']" name="ios-radio-button-on"></ion-icon>
+                        </div>
+                        <div [hidden]="!multiSelect" style="float: left;">
+                            <ion-icon [hidden]="row['_select']" name="md-checkmark-circle"></ion-icon>
+                            <ion-icon style="color:#387ef5;" [hidden]="!row['_select']" name="md-checkmark-circle-outline"></ion-icon>
+                        </div>
+                        
+                        <div class="name float-left">{{row["materielName"]}}</div>
+                        <div class="status float-left">{{row["status"]}}</div>
+                    </div>
+                    <div class="d2">
+                        <div class="bill float-left">{{row["materielNo"]}}</div>
+                        <div class="pic float-right">{{row["storeLen"]}}</div>
+                    </div>
+                </div>
+                <div class="icon float-left">
+                    <ion-icon name="ios-arrow-forward"></ion-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</ion-content>
+  <ion-footer>
+    <div class="bottom-buttons">
+        <button ion-button full (click)="_onBtnOk()" [disabled]="selectItems.length<=0">确定</button>
+    </div>
+  </ion-footer>
+  <div [hidden]="pageData.filterStatus=='closeFilter'" class="filter-mask" (click)="_onCloseFilter()"></div>
+  <div [@filterPanel]="pageData.filterStatus" class="filter-body">
+      
+    <div class="filter-body-title">
+        <span>事业部</span>
+        <ion-icon name="ios-arrow-forward" class="float-right" ></ion-icon>
+
+    </div>
+    <div>
+        <ion-row>
+            <ion-col col-4 *ngFor="let item of pageData.divisionNoData">
+                <button style="border: 1px solid #ccc;" ion-button full small icon-left (click)="onBtnSingleSelect(item,pageData.filters.divisionNos,'divisionNo')" color="{{item.isSelect?'':'light'}}">
+                    <ion-icon name="md-checkmark" [hidden]="!item.isSelect" ></ion-icon>    
+                    {{item["divisionName"]}}
+                </button>      
+            </ion-col>
+        </ion-row>
+    </div>
+      <div class="filter-body-title">
+        <span>品牌</span>
+        <ion-icon name="ios-arrow-forward" class="float-right" ></ion-icon>
+          
+    </div>
+    <div>
+        <ion-row>
+            <ion-col col-4 *ngFor="let item of pageData.brandNoData">
+                <button style="border: 1px solid #ccc;"  ion-button full small icon-left (click)="onBtnSingleSelect(item,pageData.filters.brandNos,'brandNo')" color="{{item.isSelect?'':'light'}}">
+                    <ion-icon name="md-checkmark" [hidden]="!item.isSelect" ></ion-icon>    
+                    {{item["brandName"]}}
+                </button>      
+            </ion-col>
+        </ion-row>
+    </div>
+    <ion-footer>
+        <ion-row>
+            <ion-col col-6>
+                <button ion-button full (click)="_onBtnFilter()">确定</button> 
+            </ion-col>
+            <ion-col col-6>
+                <button ion-button full (click)="_onBtnCanel()">取消</button> 
+            </ion-col>
+        </ion-row>
+        
+    </ion-footer>
+  </div>

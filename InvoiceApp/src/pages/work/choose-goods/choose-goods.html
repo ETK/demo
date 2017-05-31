@@ -1,0 +1,49 @@
+<!--
+  选择商品页面.
+  wudefeng
+  2017-05-11
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>选择商品</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="输入商品编，名称查询"></ion-searchbar>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <ion-thumbnail item-left>
+        <img [src]="item.img">
+      </ion-thumbnail>
+      <h3>产品编号：{{item.good_no}}</h3>
+      <h3>产品名称：{{item.good_name}}</h3>
+      <div item-right style="margin-right: -6px">
+        <button ion-button (click)="changeQty(item,-1)" style="margin-right:-6px" clear icon-only>
+               <ion-icon name="remove"></ion-icon>
+           </button>
+        <button ion-button (click)="inputQty(item)" outline style="min-width:35px">
+              {{item.input_qty}}
+            </button>
+        <button ion-button (click)="changeQty(item,1)" style="margin-left:-6px" clear icon-only>
+               <ion-icon name="add"></ion-icon>
+            </button>
+      </div>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+<ion-footer>
+  <ion-item>
+    已选择:{{getChooseItem().length}}项
+    <button ion-button small item-right (click)="confirmChoose()">确认</button>
+  </ion-item>
+</ion-footer>

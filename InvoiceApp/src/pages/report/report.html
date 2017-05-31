@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      报表
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-slides class="slide-title" slidesPerView=3  pager=false>
+    <ion-slide *ngFor="let rpt of rptArray; let i = index;">
+      <div (click)="titleClick(rpt,i)">
+        <span class="slide-title-unit" [ngClass]="{'slide-title-active': selectedIndex == i}">{{rpt.rptName}}</span>
+      </div>
+    </ion-slide>
+  </ion-slides>
+
+
+  <div [ngSwitch]="rptType">
+    <ion-list *ngSwitchCase="'sale'">
+      <ion-item>       
+        <h2>销售日报表</h2>
+      </ion-item>
+      <ion-item>
+        <h2>销售月报表</h2>
+      </ion-item>
+      <ion-item>
+      <h2>销售季报表</h2>
+      </ion-item>
+      <ion-item>
+        <h2>销售年报表</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'purchase'">
+      <ion-item>
+      <h2>采购退货率</h2>
+      </ion-item>
+      <ion-item>
+        <h2>采购交货率</h2>
+      </ion-item>    
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'stk'">
+      <ion-item>
+        进出仓明细查询
+      </ion-item>
+      <ion-item>
+        安全库存分析
+      </ion-item>      
+    </ion-list>
+  </div>
+</ion-content>

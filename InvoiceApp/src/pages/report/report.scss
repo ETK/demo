@@ -1,0 +1,36 @@
+page-report {
+
+ion-col{
+    text-align: center;
+  }
+  
+  img {
+    width: 40px;
+    height: 40px;
+    margin-top: 8px;
+  }
+
+  $slide-height-small: 50px;
+  $slide-height-large: 60px;
+
+  .slide-title {
+    width: 100%;
+    height: $slide-height-small;
+    color: #666666;
+    padding: 0;
+    border-bottom: 2px solid #f0f0f0
+  }
+
+  .slide-title-unit {
+    padding-bottom: 8px;
+    font-size: 16px;
+    height: $slide-height-small;
+    line-height: $slide-height-small;
+  }
+
+  .slide-title-active {
+    color: map_get($colors, primary);
+    border-bottom: 3px solid map_get($colors, primary);
+  }
+
+}

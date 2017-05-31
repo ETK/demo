@@ -1,0 +1,47 @@
+<!--
+  调拨单.
+ wudefeng
+ 2017-5-11
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>调拨单</ion-title>
+    <ion-buttons end>
+    <!--   <button ion-button ion-only >
+        <ion-icon name="ios-funnel" outline></ion-icon>
+      </button>  -->
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onSearch($event)" placeholder="输入仓库、商品等关键字进行查询" (ionClear)="getData()">
+  </ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+      <button ion-item tappable (click)="addItem(item)">  
+      <h3>{{item.out_store_name}} <ion-icon name="arrow-forward"></ion-icon> {{item.in_store_name}}</h3>  
+      <h3>{{item.bill_no}}</h3> 
+      <h3>￥{{item.cost}}</h3>
+      <div item-right>
+        <button ion-button color="secondary" *ngIf="item.bill_status=='10'"  outline>制单</button>
+        <button ion-button color="energized" *ngIf="item.bill_status=='20'"  outline>审核</button>
+        <p>共 {{item.itemCount}} 项</p>
+        </div>
+    </button>
+      <ion-item-options *ngIf="item.bill_status=='10'">
+        <button ion-button  (click)="audit(item)">
+          <ion-icon name="lock"></ion-icon> 
+          审核 
+       </button>
+        <button ion-button color="danger" (click)="deleteItem(item)">
+        <ion-icon name="trash"></ion-icon>
+               删除
+          </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,45 @@
+.bottom-buttons{
+    bottom: 0px;
+    position: absolute;
+    width: 100%;
+    background-color: white;
+}
+
+.form-content{
+    background-color: #F6F5F6;
+}
+
+.form-detail{
+    margin-top: 10px;
+}
+
+.form-bottom-edit{
+    padding-bottom: 106px;
+}
+
+.form-bottom-add{
+    padding-bottom: 53px;
+}
+
+.filter-mask{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    height: inherit;
+    z-index: 111;
+    position: absolute;
+}
+
+.filter-body{
+    width: 85%;
+    background-color: #f8f5f5;
+    height: inherit;
+    position: absolute;
+    z-index: 112;
+    left: 100%;
+}
+
+.filter-body-title{
+    padding: 9px 7px 9px 15px;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}

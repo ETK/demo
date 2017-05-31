@@ -1,0 +1,73 @@
+<!--
+  demo
+  wudefeng
+  2017.5.4
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>demo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+
+  <div> 客户信息
+    <ion-item>
+      <ion-label>客户编号</ion-label>
+      <ion-input type="text" placeholder="编号" [(ngModel)]="customer.customer_no" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>客户名称</ion-label>
+      <ion-input type="text" placeholder="名称" [(ngModel)]="customer.customer_name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>客户地址</ion-label>
+      <ion-input type="text" placeholder="地址" [(ngModel)]="customer.customer_addr"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>联系人</ion-label>
+      <ion-input type="text" placeholder="联系人" [(ngModel)]="customer.contact"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>联系电话</ion-label>
+      <ion-input type="number" placeholder="电话" [(ngModel)]="customer.phone"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>邮箱</ion-label>
+      <ion-input type="email" placeholder="邮箱" [(ngModel)]="customer.email"></ion-input>
+    </ion-item>
+    <button ion-button block (click)="save()">保存</button>
+  </div>
+
+  <p class="bottomitem">
+    <button ion-button item-right (click)="getBillNo()">获取单号</button> 单据编号:{{billNo}}
+  </p>
+
+
+  <div> 库存操作：
+    <ion-item>
+      <ion-label>商品编号</ion-label>
+      <ion-input type="text" [(ngModel)]="stk.good_no"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>仓库编号</ion-label>
+      <ion-input type="text" [(ngModel)]="stk.store_no"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>进/出仓</ion-label>
+      <ion-select [(ngModel)]="stk.in_out_flag">
+        <ion-option value="I">进仓</ion-option>
+        <ion-option value="O">出仓</ion-option>
+      </ion-select>
+    </ion-item>
+      <ion-item>
+        <ion-label>数量</ion-label>
+        <ion-input type="number" [(ngModel)]="stk.qty"></ion-input>
+      </ion-item>
+      <button ion-button block (click)="savestk()">保存</button>
+  </div>
+</ion-content>
